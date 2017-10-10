@@ -1,11 +1,7 @@
 <div class="aside">
     <!-- 个人资料 -->
-    <div class="profile">
-        <!-- 头像 -->
-        <div class="avatar img-circle">
-            <img src="/views/static/uploads/avatar.jpg">
-        </div>
-        <h4>布头儿</h4>
+    <div class="profile" id="user-info">
+       <!--这里放的是模板-->
     </div>
     <!-- 导航菜单 -->
     <div class="navs">
@@ -85,3 +81,15 @@
         </ul>
     </div>
 </div>
+<!--模板渲染的时候也进行了一次头像图片的是否有数据的判断,如果没有就使用默认的图片-->
+<script type="text/template" id="profile-tpl">
+    <!-- 头像 -->
+    <div class="avatar img-circle">
+        {{if tc_avatar}}
+        <img src="{{tc_avatar}}">
+        {{else}}
+        <img src="/views/static/uploads/avatar.jpg">
+        {{/if}}
+    </div>
+    <h4>{{tc_name}}</h4>
+</script>
