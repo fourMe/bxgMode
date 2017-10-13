@@ -40,7 +40,7 @@ define(["jquery","form","cookie"],function ($) {
             
             //又因为cookie中只能存储字符串,所以要把返回回来的对象转变成字符串存入,用的时候在再转换成对象取出即可
             
-            $.cookie("userinfo",JSON.stringify(data.result),{path:"/",expiress:365});
+            $.cookie("userinfo",JSON.stringify(data.result),{path:"/",expires:365});
 
 //            如果用户登录成功,就把页面跳转到首页面  因为是window的属性所以可以省略Window;
             

@@ -43,5 +43,28 @@ define(["jquery", "template", "cookie"], function ($, template) {
       }
     })
   })
+  
+  //给导航栏菜单添加点击事件,实现点击父菜单显示下面的子菜单;
+  //因为导航栏中只要有子菜单那么结构就是一样的,所以我们通过子菜单去向上找它的父元素注册事件可以给导航栏中所有拥有子菜单的父元素都注册事件
+  $(".navs>ul>li>ul").parent().click(function () {
+    $(this).children("ul").slideToggle("fast");
+  })
+  
+  
+  //需要给侧边导航栏注册点击事件来实现导航列表的高亮显示功能
+  
+  //思路就是  让当前页面导航栏中所有对应的a标签添加上active的样式
+   var activeA=$(".navs a[href='"+location.pathname+"']");
+   activeA.addClass('active');
+  
+  //做完上述操作还会有一个bug 就是在页面刷新的时候,之前显示的子菜单又会再一次关闭
+  //因为上面是给所有的a都注册了active的切换
+  //思路就是    我们只需要依据子菜单的a 向上找他的父元素的父元素看它有没有一个a的兄弟元素,
+  //以此作为判断的依据,显示对应的子菜单ul即可.
+  if(activeA.parent().parent().siblings('a').length>0){
+    activeA.parent().parent().show();
+  }
+  
+  
 })
 
