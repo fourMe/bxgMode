@@ -32,6 +32,12 @@
 
 <?php include $_SERVER["DOCUMENT_ROOT"]."/views/public/js.html"?>
 <script>
+  //提示:
+  //“form表单里的按钮，明明是button而不是input type = submit，点击还是提交，如何让它不提交？”
+//  （这个问题被我遇到了，很坑爹的，知道了就不以为然了。）
+//  因为 button 默认类型是submit，所以如果想让不提交，显示的指定类型，type=“button”就解决了。
+  
+  
     // 这里面设置的是config里面设置的基础路径 所以在用require引用loginjs的时候就需要跳出当前基础路径去寻找login 的路径js;
     //baseUrl:/views/assets
    require(["../static/js/dashboard/login"])
