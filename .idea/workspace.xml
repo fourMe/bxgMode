@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9abe9ec-53d5-45fb-bfcf-ce21c38073fe" name="默认的" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/assets/artTemplate/template-web.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/static/js/teacher/list.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/static/js/teacher/manage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/static/lib/config.js" afterPath="$PROJECT_DIR$/views/static/lib/config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/teacher/list.html" afterPath="$PROJECT_DIR$/views/teacher/list.html" />
@@ -424,12 +427,12 @@
       <workItem from="1507635208529" duration="11672000" />
       <workItem from="1507796602188" duration="24222000" />
       <workItem from="1507900363597" duration="6147000" />
-      <workItem from="1507947500450" duration="7666000" />
+      <workItem from="1507947500450" duration="8107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58342000" />
+    <option name="totallyTimeSpent" value="58783000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
