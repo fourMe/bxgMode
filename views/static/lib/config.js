@@ -11,7 +11,14 @@ require.config({
 	  //就是器一个别名;
 		"jquery":"jquery/jquery",
 		"cookie":"jquery-cookie/jquery.cookie",
-		"template":"artTemplate/template",
-    "form":"jquery-form/jquery.form"
-	}
+		"template":"artTemplate/template-web",
+    "form":"jquery-form/jquery.form",
+		"bootstrap":"bootstrap/js/bootstrap"
+	},
+  shim: {
+    "bootstrap": {
+      //deps是用来设置依赖项的
+      deps: ["jquery"]
+    }
+  }
 })
