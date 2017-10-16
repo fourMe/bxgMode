@@ -1,9 +1,12 @@
 //定义一个模块
 //首先这里面运用了三个第三方插件  分别是jquery  cookie template
 //所以在接受参数的时候也要接收三个参数的路径
-define(["jquery", "template", "cookie"], function ($, template) {
+define(["jquery", "template", "nprogress","cookie"], function ($, template,NProgress) {
+  NProgress.start();  //在页面一开始的时候就进行加载
   
   $(function () {
+    NProgress.done();   //表示的在页面结构加载完成后在停止
+    
     //在进行模板的时候需要进行一下用户页面的判断 因为在登陆页面并不需要进行模板的添加,只有不是登录页面才需要获取cookie的数据进行模板的渲染;
     
     if (location.pathname != "/dashboard/login") {
@@ -64,6 +67,41 @@ define(["jquery", "template", "cookie"], function ($, template) {
   if(activeA.parent().parent().siblings('a').length>0){
     activeA.parent().parent().show();
   }
+  
+  
+  
+  // (但是有一个不好的用户体验上就是在ajax的没有拿到的数据展示在页面的时候进度条就加载完了,所以需要解决这个问题 但是又不可能在每个ajax函数的中书写代码 这个时候运用了到了ajax全局事件)
+  //ajax全局事件：
+  //所有的ajax请求，都会触发注册的ajax全局事件，所以如果想要在所有的ajax请求发送开始到结束期间做某些事情的话，ajax全局事件，可以帮助我们统一实现
+  
+  //注册ajax全局事件实现所有ajax加载的进度条加载
+  $(document).ajaxStart(function(){
+    NProgress.start();
+    $('#mask').show();
+  });
+  $(document).ajaxStop(function(){
+    NProgress.done();
+    $('#mask').hide();
+  });
+  
+  
+  //需要实现一个全网页的遮罩层动画, 还是要在ajax的全局事件去做,因为是遮罩层肯定是一个固定定位,所以需要在公共部分区域找到一个父元素是body的盒子去做.(只会在有ajax的请求的页面显示动画加载图)
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
 })

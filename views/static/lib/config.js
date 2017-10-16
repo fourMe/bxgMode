@@ -13,12 +13,24 @@ require.config({
 		"cookie":"jquery-cookie/jquery.cookie",
 		"template":"artTemplate/template-web",
     "form":"jquery-form/jquery.form",
-		"bootstrap":"bootstrap/js/bootstrap"
+		"bootstrap":"bootstrap/js/bootstrap",
+    "utils":"../static/lib/utils",
+    "datepicker":"bootstrap-datepicker/js/bootstrap-datepicker",
+    "datepickerCN":"bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min",
+    "nprogress":"nprogress/nprogress",
+    "validate":"jquery-validate/jquery-validate"
 	},
   shim: {
     "bootstrap": {
       //deps是用来设置依赖项的
       deps: ["jquery"]
+    },
+    "datepickerCN":{
+      deps: ["jquery"]
+    },
+    "validate":{
+      deps: ["jquery"]
     }
+    
   }
 })

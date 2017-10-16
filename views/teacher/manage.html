@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>学IT - 后台管理系统</title>
+  <?php include "views/public/css.html"?>
+  <!--因为只是这一个页面使用到了时间插件,所以可以直接在页面中引入对应的css即可-->
+  <link rel="stylesheet" href="/views/assets/bootstrap-datepicker/css/bootstrap-datepicker3.css">
+</head>
+<body>
+
+<!-- 侧边栏 -->
+<?php include "views/public/aside.html"?>
+
+<!-- 主体 -->
+<div class="main">
+  <div class="container-fluid">
+    <!-- 头部 -->
+    <?php include "views/public/header.html"?>
+    
+    <div class="body teacher">
+      <!-- 面包屑 -->
+      <!--挖个坑 ,这里显示的是教师添加和显示功能-->
+    </div>
+  </div>
+</div>
+
+<?php include "views/public/js.html"?>
+<!--需要注意整个模板中的name属性的值是否添加,特别需要注意的是下拉菜单的name属性,如果没有对应文档接口的请求参数,就不会实现讲师的添加-->
+<script type="text/template" id="teacher-manage-tpl">
+  <ol class="breadcrumb">
+    <li><a href="javascript:;">讲师管理</a></li>
+    <li class="active">{{title}}</li>
+  </ol>
+  <div class="teacher-add">
+    <form action="{{url}}" method="post" class="form-horizontal col-xs-offset-2">
+      <input type="hidden" name="tc_id" value="{{teacher.tc_id}}">
+      <div class="form-group">
+        <label for="" class="col-xs-3 control-label">姓名</label>
+        <div class="col-xs-4">
+          <input type="text" name="tc_name" value="{{teacher.tc_name}}" class="form-control input-sm"
+                 placeholder="讲师名称" data-trim data-required data-conditional="stopName" data-description="username" data-describedby="msgforusername">
+        </div>
+        <label for="" style="text-align: left" id="msgforusername" class="col-xs-3 control-label"></label>
+      </div>
+      {{if !teacher.tc_id}}
+      <div class="form-group">
+        <label for="" class="col-xs-3 control-label">密码</label>
+        <div class="col-xs-4">
+          <input type="password" name="tc_pass" value="{{teacher.tc_pass}}" class="form-control input-sm" data-trim data-required data-conditional="pass" data-pattern="^[0-9A-Za-z]{6,15}$" data-description="password" data-describedby="msgforpassword">
+        </div>
+        <label for="" style="text-align: left" id="msgforpassword"class="col-xs-3 control-label" ></label>
+      </div>
+      {{/if}}
+      <div class="form-group">
+        <label for="" class="col-xs-3 control-label">入职时间</label>
+        <div class="col-xs-4">
+          <input type="text" name="tc_join_date" value="{{teacher.tc_join_date}}" class="form-control input-sm  data-required" data-required data-description="joindate" data-describedby="msgforjoindate">
+        </div>
+        <label for="" style="text-align: left" id="msgforjoindate"class="col-xs-3 control-label"></label>
+      </div>
+      <div class="form-group">
+        <label for="" class="col-xs-3 control-label">类型</label>
+        <div class="col-xs-2">
+          <select name="tc_type" class="form-control input-sm">
+            <option value="1" {{teacher.tc_type=="1"?"selected":""}}>讲师</option>
+            <option value="0" {{teacher.tc_type=="0"?"selected":""}}>管理员</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="" class="col-xs-3 control-label">性别</label>
+        <div class="col-xs-4">
+          <label class="radio-inline">
+            <input type="radio" name="tc_gender" {{teacher.tc_gender=="0"?"checked":""}} value="0"> 男
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="tc_gender" {{teacher.tc_gender=="1"?"checked":""}} value="1"> 女
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-7">
+          <button class="btn btn-success btn-sm pull-right">{{btnText}}</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</script>
+
+<script>
+  require(["../static/js/teacher/manage"])
+</script>
+</body>
+</html>
